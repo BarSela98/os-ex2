@@ -6,6 +6,7 @@
 #define BUFFER_SIZE 300
 
 void report_data_summary(int num_stud);
+char **split_string(char *str);
 
 int main(int argc, char *argv[]) {
     int students = 0;
@@ -38,7 +39,7 @@ int main(int argc, char *argv[]) {
         if (!fork()) {
             close(pipefd[0]); // Close the read end of the pipe
             dup2(pipefd[1], STDOUT_FILENO);//redirect child prints to pipe
-            execv("./one_student.c", line);//run one_student.c from child procced
+            execv("./one_student.c", split_string(line));//run one_student.c from child procced
         }
         ssize_t bytes_read = read(pipefd[0], buffer, BUFFER_SIZE);//blocking until child finish
         buffer[bytes_read] = '\0';
@@ -53,6 +54,27 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
+char **split_string(char *str) {
+    char **tokens = malloc(100 * sizeof(char *));
+    char *token;
+    int i = 1;
+    strcpy(tokens[0],"./one_student.c");
+    // Split the string into tokens
+    token = strtok(str, " ");
+    while (token != NULL && i < 100) {
+        tokens[i] = malloc(strlen(token) + 1);
+        strcpy(tokens[i], token);
+        token = strtok(NULL, " ");
+        i++;
+    }
+
+    // Set the last token to NULL
+    tokens[i] = NULL;
+
+    return tokens;
+}
+
 
 
 void report_data_summary(int num_stud) {
