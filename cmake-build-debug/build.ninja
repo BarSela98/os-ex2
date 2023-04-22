@@ -61,6 +61,12 @@ build CMakeFiles/os-ex2.dir/read_grades.c.o: C_COMPILER__os-ex2_Debug /Users/bar
   OBJECT_DIR = CMakeFiles/os-ex2.dir
   OBJECT_FILE_DIR = CMakeFiles/os-ex2.dir
 
+build CMakeFiles/os-ex2.dir/ex2_q1.c.o: C_COMPILER__os-ex2_Debug /Users/bar.sela/CLionProjects/os-ex2/ex2_q1.c || cmake_object_order_depends_target_os-ex2
+  DEP_FILE = CMakeFiles/os-ex2.dir/ex2_q1.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=13.0 -fcolor-diagnostics -std=gnu11
+  OBJECT_DIR = CMakeFiles/os-ex2.dir
+  OBJECT_FILE_DIR = CMakeFiles/os-ex2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target os-ex2
@@ -69,7 +75,7 @@ build CMakeFiles/os-ex2.dir/read_grades.c.o: C_COMPILER__os-ex2_Debug /Users/bar
 #############################################
 # Link the executable os-ex2
 
-build os-ex2: C_EXECUTABLE_LINKER__os-ex2_Debug CMakeFiles/os-ex2.dir/one_student.c.o CMakeFiles/os-ex2.dir/read_grades.c.o
+build os-ex2: C_EXECUTABLE_LINKER__os-ex2_Debug CMakeFiles/os-ex2.dir/one_student.c.o CMakeFiles/os-ex2.dir/read_grades.c.o CMakeFiles/os-ex2.dir/ex2_q1.c.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -mmacosx-version-min=13.0
   OBJECT_DIR = CMakeFiles/os-ex2.dir
   POST_BUILD = :

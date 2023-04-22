@@ -3,4 +3,4 @@ project(os-ex2 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(os-ex2 one_student.c read_grades.c)
+add_executable(os-ex2 one_student.c read_grades.c ex2_q1.c)
